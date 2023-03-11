@@ -12,7 +12,7 @@ import (
 	"github.com/bitrise-io/go-utils/log"
 	"github.com/bitrise-io/go-utils/retry"
 	"github.com/bitrise-tools/go-steputils/stepconf"
-	"github.com/google/go-github/github"
+	"github.com/google/go-github/v50/github"
 )
 
 // formats:
@@ -119,8 +119,9 @@ func main() {
 		Name:            &c.Name,
 		Draft:           &isDraft,
 		Prerelease:      &isPreRelease,
-		GenerateReleaseNotes:   true,
 	}
+
+	release.add
 
 	_, owner, repo := parseRepo(c.RepositoryURL)
 	newRelease, _, err := client.Repositories.CreateRelease(context.Background(), owner, repo, release)
