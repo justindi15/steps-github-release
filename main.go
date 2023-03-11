@@ -117,9 +117,9 @@ func main() {
 		TagName:         &c.Tag,
 		TargetCommitish: &c.Commit,
 		Name:            &c.Name,
-		Body:            &c.Body,
 		Draft:           &isDraft,
 		Prerelease:      &isPreRelease,
+		GenerateReleaseNotes:   true,
 	}
 
 	_, owner, repo := parseRepo(c.RepositoryURL)
